@@ -24,11 +24,11 @@
 #     Add new items to the grocery store.
 #     Zip it up and turn it in!
 @inventory = [
-  {item_name: "apple", item_price: 1.99, item_stock: 20},
-  {item_name: "banana", item_price: 0.55, item_stock: 30},
-  {item_name: "grapes", item_price: 5.00, item_stock: 15},
-  {item_name: "mango", item_price: 3.00, item_stock: 18},
-  {item_name: "cheese", item_price: 6.00, item_stock: 25}
+  {item_name: "apple", item_price: 1.99},
+  {item_name: "banana", item_price: 0.55},
+  {item_name: "grapes", item_price: 5.00},
+  {item_name: "mango", item_price: 3.00},
+  {item_name: "cheese", item_price: 6.00}
 ]
 
 
@@ -56,6 +56,7 @@ def main_menu
         puts " add items "
     elsif user_choice == 3
         puts " view cart menu"
+        cart_menu
     elsif user_choice == 4
         puts " add items to the cart"
     elsif user_choice == 5
@@ -74,10 +75,58 @@ end
 # end
 def view_items
     @inventory.each do |item_view|
-      puts "Item: #{item_view[:item_name]} price: #{item_view[:item_price]} stock: #{item_view[:item_stock]}"
+      puts "Item: #{item_view[:item_name]} price: #{item_view[:item_price]}"
     end
-    
+    main_menu
 end
 
-welcome
+def cart_menu
+    puts " 1) display items"
+    puts " 2) remove items"
+    puts " 3) checkout "
+    puts " 4) back to main menu" 
 
+    user_choice = gets.strip.to_i
+
+     #logic 
+     if user_choice == 1
+        puts "display items"
+        view_cart
+    elsif user_choice == 2
+        puts " remove items "
+    elsif user_choice == 3
+        puts " checkout"
+    elsif user_choice == 4
+        puts " back to main menu"
+        main_menu
+    else 
+        puts " please select again"
+        cart_menu
+    end   
+   end
+
+
+    @carts = [
+        {item_name: "banana", item_price: 0.55}
+    ]
+
+    def view_cart
+        @carts.each do |item_view|
+          puts "Item: #{item_view[:item_name]} price: #{item_view[:item_price]}"
+        end
+        
+    end
+
+    def add_cart
+        puts" what do you want to get?"
+        puts"-------------------------"
+        
+        def view_items
+            @inventory.each do |item_view|
+              puts "Item: #{item_view[:item_name]} price: #{item_view[:item_price]}"
+            end
+        end
+        if 
+    end 
+    
+welcome
